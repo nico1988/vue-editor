@@ -118,7 +118,6 @@ export function createRunHtml() {
         },
         dataType: "JSON",
         success:data=> {
-
             console.log(data);
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {

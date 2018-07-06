@@ -1,8 +1,8 @@
 {
-  "name": "vue-codepen",
-  "version": "0.0.1",
+  "name": "vue-editor",
+  "version": "0.0.3",
   "description": "vue-codepen monaco-editor",
-  "homepage": "https://github.com/heqing0712/vue-codepen",
+  "homepage": "https://github.com/nico1988/vue-editor",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack",
@@ -14,10 +14,10 @@
   "keywords": [
     "vue-codepen monaco-editor web-editor"
   ],
-  "author": "xiaohe",
+  "author": "wade",
   "repository": {
     "type": "git",
-    "url": "https://github.com/heqing0712/vue-codepen.git"
+    "url": "https://github.com/nico1988/vue-editor"
   },
   "license": "ISC",
   "devDependencies": {
@@ -67,7 +67,8 @@
   },
   "dependencies": {
     "feather-icons": "^4.7.0",
-    "jquery": "^3.2.1"
+    "jquery": "^3.2.1",
+    "vuex": "^3.0.1"
   },
   "engines": {
     "node": ">= 4.0.0",

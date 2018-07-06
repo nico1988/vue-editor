@@ -14,7 +14,6 @@
               Javascript
             </a>
           </nav>
-          
           <form id="form-settings">
             <div class="tab-cts">
               <div class="tab-ct active">
@@ -51,8 +50,6 @@
                     </select>
                   </div>
                 </div>
-
-
                 <div class="form-item">
 
                   <h4 class="form-tit">
@@ -71,7 +68,6 @@
                   </div>
                 </div>
               </div>
-
               <div class="tab-ct">
                 <div class="form-item">
                   <h4 class="form-tit">
@@ -91,13 +87,11 @@
                     </select>
                   </div>
                 </div>
-
                 <div class="form-item">
                   <h4 class="form-tit">
                     Css Base
                   </h4>
                   <div class="form-ct">
-
                     <div>
                       <label>
                         <input type="radio" checked="checked" name="cssbase" value="1"  v-model="CssBase"/> None
@@ -108,12 +102,9 @@
                       <label>
                         <input type="radio" name="cssbase" value="3"  v-model="CssBase"/> reset.css
                       </label>
-
                     </div>
-
                   </div>
                 </div>
-
                 <div class="form-item">
                   <h4 class="form-tit">
                     Css 引用
@@ -135,7 +126,6 @@
                   </div>
                 </div>
               </div>
-
               <div class="tab-ct">
                 <div class="form-item">
                   <h4 class="form-tit">
@@ -149,7 +139,6 @@
                     </select>
                   </div>
                 </div>
-                
                 <div class="form-item">
                   <h4 class="form-tit">
                     Javascript 引用
@@ -187,39 +176,21 @@
                       <option value="https://cdn.zingchart.com/zingchart.min.js">ZingChart</option>
                     </select>
                   </div>
-
                   <div class="form-c cf quick-select">
                     <a data-src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" v-on:click="quickAdd2" href="javascript:;">
                       jQuery
                     </a>
                   </div>
                 </div>
-
               </div>
-
-          
             </div>
           </form>
-
         </div>
-
-
-
       </div>
-
-
     </div>
-
-    
   </div>
-
 </template>
-
-
-
-
 <script>
-
   export default from "./js/penSettingDialog";
 
 </script>

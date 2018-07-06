@@ -19,7 +19,6 @@ function getActiveWebEditor() {
 
 
 export function ly1() {
-
     var $webEditor = getActiveWebEditor();
     var editorType = $webEditor.data("type");
     var storeName = editorType + "-boxs-row";
@@ -29,8 +28,6 @@ export function ly1() {
     var storeName2 = editorType + "-boxs-col";
     var $boxes2 = $(".boxes-col", $webEditor);
     var $boxs2 = $(".box-col", $boxes2);
-
-
     //可调整布局绑定
     rzLayout({
 
@@ -77,9 +74,7 @@ export function ly1() {
         },
 
         mousemove: function () {
-
             resetEditorLayout();
-       
         },
 
         mouseup: function () {
@@ -102,64 +97,42 @@ export function ly1() {
 
         }
     });
-
-
     //可调整布局绑定
     rzLayout({
         boxes: $boxes2,
         boxClassName: "box-col",
         resizerClassName: "resizer-col",
         dir: "col",
-
         init: function () {
-
             var i, length, length2, width,
                 boxs = vs.getStore(storeName2);
-
             if (!boxs) {
-
                 boxs = [];
                 length = $boxs2.length;
                 width = (1 / length * 100).toFixed(6) + "%";
-
                 for (i = 0; i < length; i++) {
                     boxs.push({
                         width: width
                     });
                 }
-
                 vs.setStore(storeName2, boxs);
             }
-
-       
-
             if (boxs) {
-
                 $boxs2.each(function (i) {
                     var $that = $(this),
                         box = boxs[i];
-
                     if (box && box.width != undefined) {
                         $that.width(box.width);
                     }
-
                 });
             }
-
-
         },
-
         mousedown: function () {
-
         },
-
         mousemove: function () {
-  
            resetEditorLayout();
         },
-
         mouseup: function () {
-
             var boxs = [],
                 boxesWidth = $boxes2.width();
             $boxs2.each(function () {
@@ -168,17 +141,12 @@ export function ly1() {
                     width: ($that.width() / boxesWidth * 100).toFixed(6) + "%"
                 });
             });
-
             vs.setStore(storeName2, boxs);
-
         }
     });
 
 };
-
 export function ly2() {
-
-
     var $webEditor = getActiveWebEditor();
     var editorType = $webEditor.data("type");
     var storeName = editorType + "-boxs-row";
@@ -188,37 +156,27 @@ export function ly2() {
     var storeName2 = editorType + "-boxs-col";
     var $boxes2 = $(".boxes-col", $webEditor);
     var $boxs2 = $(".box-col", $boxes2);
-
-
     //可调整布局绑定
     rzLayout({
         boxes: $boxes,
         boxClassName: "box-row",
         resizerClassName: "resizer-row",
         dir: "row",
-
         init: function () {
-
             var i, length, height,
                 boxs = vs.getStore(storeName);
-
             if (!boxs) {
-
                 boxs = [];
                 length = $boxs.length;
                 height = (1 / length * 100).toFixed(6) + "%";
-
                 for (i = 0; i < length; i++) {
                     boxs.push({
                         height: height
                     });
                 }
-
                 vs.setStore(storeName, boxs);
             }
-
             if (boxs) {
-
                 $boxs.each(function (i) {
                     var $that = $(this),
                         box = boxs[i];
@@ -227,7 +185,6 @@ export function ly2() {
                     }
                 });
             }
-
         },
 
         mousedown: function () {
@@ -647,22 +604,16 @@ export function ly7() {
             vs.setStore(storeName, boxs)
         }
     });
-
-
     //可调整布局绑定
     rzLayoutx({
         boxes: $boxes2,
         boxClassName: "box-row",
         resizerClassName: "resizer-row",
         dir: "row",
-
         init: function () {
-         
             var i, length, height,
                 boxs = vs.getStore(storeName2);
-        
             if (!boxs) {
-
                 boxs = [];
                 length = $boxs2.length;
                 height = (1 / length * 100).toFixed(6) + "%";
@@ -672,12 +623,9 @@ export function ly7() {
                         height: height
                     });
                 }
-
                 vs.setStore(storeName2, boxs);
             }
-
             if (boxs) {
-
                 $boxs2.each(function (i) {
                     var $that = $(this),
                         box = boxs[i];
@@ -689,29 +637,21 @@ export function ly7() {
                 });
             }
         },
-
         mousedown: function () {
-
         },
-
         mousemove: function () {
             resetEditorLayout();
         },
-
         mouseup: function () {
-
             var boxs = [],
                 boxesHeight = $boxes2.height();
-
             $boxs2.each(function () {
                 var $that = $(this);
                 boxs.push({
                     height: ($that.height() / boxesHeight * 100).toFixed(6) + "%"
                 });
             });
-
             vs.setStore(storeName2, boxs)
-
         }
     });
 
@@ -720,9 +660,7 @@ export function ly7() {
         resetEditorLayout();
     })
 };
-
 export function ly8() {
-
     var $webEditor = getActiveWebEditor();
     var editorType = $webEditor.data("type");
     var storeName = editorType + "-boxs-col";
@@ -732,21 +670,15 @@ export function ly8() {
     var storeName2 = editorType + "-boxs-row";
     var $boxes2 = $(".boxes-row", $webEditor);
     var $boxs2 = $(".box-row", $boxes2);
-
-
     //可调整布局绑定
     rzLayout({
         boxes: $boxes,
         boxClassName: "box-col",
         resizerClassName: "resizer-col",
         dir: "col",
-
         init: function () {
-
             var boxs = vs.getStore(storeName);
-
             if (!boxs) {
-
                 boxs = [];
                 var length = $boxs.length;
                 var width = (1 / length * 100).toFixed(6) + "%";
@@ -760,31 +692,24 @@ export function ly8() {
                 vs.setStore(storeName, boxs);
             }
             if (boxs) {
-
                 $boxs.each(function (i) {
                     var $t = $(this);
                     var box = boxs[i];
                     if (box && box.width != undefined) {
                         $t.width(box.width);
                     }
-
                 });
             }
 
         },
-
         mousedown: function () {
             $dragConver.show();
         },
-
         mousemove: function () {
             resetEditorLayout();
         },
-
         mouseup: function () {
-
             $dragConver.hide();
-
             var boxesWidth = $boxes.width();
             var boxs = [];
 
@@ -799,8 +724,6 @@ export function ly8() {
             vs.setStore(storeName, boxs)
         }
     });
-
-
     //可调整布局绑定
     rzLayoutx({
         boxes: $boxes2 ,
@@ -844,31 +767,23 @@ export function ly8() {
         mousedown: function () {
 
         },
-
         mousemove: function () {
             resetEditorLayout();
         },
-
         mouseup: function () {
-
             var boxs = [],
                 boxesHeight = $boxes2.height();
-
             $boxs2.each(function () {
                 var $that = $(this);
                 boxs.push({
                     height: ($that.height() / boxesHeight * 100).toFixed(6) + "%"
                 });
             });
-    
         vs.setStore(storeName2, boxs)
-
         }
     });
-
     //重置编辑器布局
     $(window).bind("resize", function () {
-
         resetEditorLayout();
     })
 };

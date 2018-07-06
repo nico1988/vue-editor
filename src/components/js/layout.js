@@ -9,16 +9,14 @@ import Dialog from 'dialog'
 var settingDialog;
 var layoutType = getLayoutType();
 
-function showPenSettingDialog(fn) {
 
+// 设置编辑器 HTML CSS JAVASCRIPT
+function showPenSettingDialog(fn) {
     var that = this;
     var settings = $("#form-settings").serializeArray();
-
     if (!settingDialog) {
-      
         settingDialog = Dialog({
-
-            title: "笔记设置",
+            title: "设置",
             width: 700,
             height: 350,
             content: $("#pen-settings"),
@@ -27,35 +25,26 @@ function showPenSettingDialog(fn) {
             className: "dialog-settings",
             showClassName:"dialog-show",
             ok: function () {
-
                 //判断设置是否变更 而是否需要更新编辑器内容
                 var newSettings = $("#form-settings").serializeArray();
-
                 for (var o in settings) {
                     if (settings[o].value != newSettings[o].value) {
                         vs.doRunByEditor(null, true);
                         break;
                     }
                 }
-
                 ////选择的标签
                 //VueData.CategoryItems = getSelecedTag(VueData.CategoryItemsAll);
-
                 ////选择的标签
                 //VueData.LabelItems = getSelecedTag(VueData.LabelItemsAll);
-
                 settingDialog.hide();
-
                 return false;
             },
-
             close: function () {
-
                 settingDialog.hide();
                 return false;
             }
         });
-
         //选项卡
         tab({
             navs: $("#pen-settings .tab-menus a"),
@@ -69,12 +58,10 @@ function showPenSettingDialog(fn) {
     } else {
         settingDialog.show();
     }
-
     fn();
 }
 
 function layoutChangeEvents() {
-
     var that = this;
     //动态条件模板 vue事件绑定有BUG 暂用jquery来绑定
     $(".setting-nub").on("click", function (e) {
@@ -82,15 +69,9 @@ function layoutChangeEvents() {
         that.penSetting($(this).data('type'), e);
     })
 }
-
-
 module.exports = {
-
-
     data() {
-
         return {
-          
             layoutType: layoutType,
             domChangeFns: {
                 finish: function () {
@@ -100,48 +81,32 @@ module.exports = {
             }
         }
     },
-
     methods: {
-
         test: function () {
-          
         },
-
         penSetting: function (actionType,event) {
             var setType = "html";
-     
             if (typeof actionType!='string'){
                 event = actionType;
             }
-
             var $set = $(event.target);
-             
             if ('html css js'.indexOf(actionType) > -1) {
                 setType = actionType;
             } else if (actionType == 'tab') {
-
                 setType = $set.closest('.tab-menus').find('.active').text();
                 setType = $.trim(setType).toLowerCase();
                 if (setType == 'result') {
                     setType = 'html';
                 }
             }
-           
             setType = $.trim(setType).toLowerCase();
-
             showPenSettingDialog.call(this,() => {
                 $("#" + setType + "-menu").trigger("click");
             });
-           
         }
-
-
     },
-
     watch: {
-
         layoutType: function (val) {
-
             var that = this;
             this.$nextTick(()=>{
                 var domChangeFns = that.domChangeFns;
@@ -151,22 +116,17 @@ module.exports = {
                     }
                 }
             });
-           
         }
     },
-
     created() {
         //console.log("has created");
         var that = this;
     },
     mounted() {
-
         var that = this;
         vs.layoutVue = this;
         bindLayoutChange();
         //console.log("has mouted.");
-
         layoutChangeEvents.call(this);
-
     }
 }

@@ -15,7 +15,6 @@ vs.init = function () {
 
     //AMD 模块化js载入后在绑定的事件
     AMDLoader(function () {
-
         //绑定AMD模式下的jquery
         window.define('jquery', function () {
             return $;

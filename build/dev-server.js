@@ -21,6 +21,17 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser
 var proxyTable = config.dev.proxyTable
 
 var app = express()
+
+// 响应接口请求
+var apiRoutes = express.Router()
+apiRoutes.get('/template', function (req, res) {
+  console.log(111111111111111111111111111111111)
+  // var data = require('../src/assets/template/elements/icon.js');
+  // console.log(data);
+  res.send(111111111);
+})
+app.use('/template', apiRoutes)
+
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {

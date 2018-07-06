@@ -4,11 +4,10 @@ import vs from '../../vs/core';
 
 let watch;
 let data = {
-
     HtmlDocType: 1,
     HtmlPreprocessor: 1,
     HtmlClassName: "",
-    HtmlHeadStuff: "",
+    HtmlHeadStuff: ``,
     CssPreprocessor: 1,
     CssBase: 1,
     CssVendorPrefix: "",
